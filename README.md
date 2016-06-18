@@ -1,5 +1,5 @@
 # Jolyglot
-Jolyglot allows to convert objects to and from Json without depending on any concrete implementation. Thus, you can happy code agains this [polyglot abstraction](https://github.com/VictorAlbertos/Jolyglot/blob/master/api/src/main/java/io/victoralbertos/jolyglot/Jolyglot.java), and let the clients of your library choose whatever json provider which better suits their needs. 
+Jolyglot allows to convert objects to and from Json without depending on any concrete implementation. Thus, you can happy code against this [polyglot abstraction](https://github.com/VictorAlbertos/Jolyglot/blob/master/api/src/main/java/io/victoralbertos/jolyglot/Jolyglot.java), and let the clients of your library choose whatever json provider which better suits their needs. 
 
 ## Available Json providers:
 * [Gson](https://github.com/google/gson). 

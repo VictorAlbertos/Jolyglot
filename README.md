@@ -26,7 +26,7 @@ dependencies {
 }
 ```
 
-Ask to the clients of your librery to add one of the next json providers:
+Ask to the clients of your library to add one of the next json providers:
 
 ```gradle
 dependencies {

@@ -1,0 +1,1 @@
+include ':app', ':api', ':common', ':gson', ':moshi', ':jackson'

@@ -14,7 +14,7 @@ Add JitPack repository in your build.gradle (top level module):
 allprojects {
     repositories {
         jcenter()
-        maven { url "https://jitpack.io" }
+        maven { url 'https://jitpack.io' }
     }
 }
 ```
@@ -22,7 +22,7 @@ allprojects {
 And add Jolyglot api module in the build.gradle of your library module:
 ```gradle
 dependencies {
-    compile "com.github.VictorAlbertos.Jolyglot:api:0.0.1"
+    compile 'com.github.VictorAlbertos.Jolyglot:api:0.0.1'
 }
 ```
 
@@ -30,9 +30,9 @@ Ask to the clients of your librery to add one of the next json providers:
 
 ```gradle
 dependencies {
-    compile "com.github.VictorAlbertos.Jolyglot:gson:0.0.1"
-    compile "com.github.VictorAlbertos.Jolyglot:jackson:0.0.1"
-    compile "com.github.VictorAlbertos.Jolyglot:moshi:0.0.1"
+    compile 'com.github.VictorAlbertos.Jolyglot:gson:0.0.1'
+    compile 'com.github.VictorAlbertos.Jolyglot:jackson:0.0.1'
+    compile 'com.github.VictorAlbertos.Jolyglot:moshi:0.0.1'
 }
 ```
 

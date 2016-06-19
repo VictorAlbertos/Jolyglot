@@ -31,7 +31,7 @@ import okio.Okio;
 /**
  * Moshi implementation of Jolyglot
  */
-public class MoshiSpeaker implements Jolyglot {
+public class MoshiSpeaker implements JolyglotGenerics {
   private final Moshi moshi;
 
   public MoshiSpeaker(Moshi moshi) {

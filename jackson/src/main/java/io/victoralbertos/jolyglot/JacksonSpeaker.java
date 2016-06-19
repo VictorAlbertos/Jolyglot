@@ -28,7 +28,7 @@ import java.lang.reflect.Type;
 /**
  * Jackson implementation of Jolyglot
  */
-public class JacksonSpeaker implements Jolyglot {
+public class JacksonSpeaker implements JolyglotGenerics {
   private final ObjectMapper mapper;
 
   public JacksonSpeaker(ObjectMapper mapper) {

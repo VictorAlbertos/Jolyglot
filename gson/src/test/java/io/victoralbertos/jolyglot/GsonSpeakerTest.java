@@ -14,15 +14,12 @@
  * limitations under the License.
  */
 
-package io.victoralbertos.json_converter;
+package io.victoralbertos.jolyglot;
 
-import io.victoralbertos.jolyglot.JacksonSpeaker;
-import io.victoralbertos.jolyglot.Jolyglot;
-
-public final class JacksonSpeakerTest extends JolyglotTest {
+public final class GsonSpeakerTest extends io.victoralbertos.jolyglot.JolyglotTest {
 
   @Override protected Jolyglot jolyglot() {
-    return new JacksonSpeaker();
+    return new GsonSpeaker();
   }
 
 }

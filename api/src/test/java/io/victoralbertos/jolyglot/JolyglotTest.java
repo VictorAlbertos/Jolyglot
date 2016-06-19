@@ -14,9 +14,8 @@
  * limitations under the License.
  */
 
-package io.victoralbertos.json_converter;
+package io.victoralbertos.jolyglot;
 
-import io.victoralbertos.jolyglot.Jolyglot;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -85,6 +84,19 @@ public abstract class JolyglotTest {
     }
   }
 
+  @Test public void fromStringPartialJsonType() throws NoSuchMethodException {
+    Type type = jolyglot.newParameterizedType(MockParameterized.class, Object.class);
+    MockParameterized mockParameterized = jolyglot.fromJson(jsonMockParameterizedSample(), type);
+
+    try {
+      assertThat(jolyglot.toJson(mockParameterized, type),
+          is(jsonMockParameterizedSample()));
+    } catch (AssertionError i) {
+      assertThat(jolyglot.toJson(mockParameterized, type),
+          is(jsonMockParameterizedSampleReverse()));
+    }
+  }
+
   @Test public void fromFileJsonClass() throws IOException {
     File file = temporaryFolder.newFile("test.txt");
     FileWriter printWriter = new FileWriter(file);
@@ -115,7 +127,25 @@ public abstract class JolyglotTest {
       assertThat(jolyglot.toJson(mockParameterized, type),
           is(jsonMockParameterizedSampleReverse()));
     }
+  }
 
+  @Test public void fromFilePartialJsonType() throws Exception {
+    File file = temporaryFolder.newFile("test.txt");
+    FileWriter printWriter = new FileWriter(file);
+    printWriter.write(jsonMockParameterizedSample());
+    printWriter.flush();
+    printWriter.close();
+
+    Type type = jolyglot.newParameterizedType(MockParameterized.class, Object.class);
+    MockParameterized mockParameterized = jolyglot.fromJson(file, type);
+
+    try {
+      assertThat(jolyglot.toJson(mockParameterized, type),
+          is(jsonMockParameterizedSample()));
+    } catch (AssertionError i) {
+      assertThat(jolyglot.toJson(mockParameterized, type),
+          is(jsonMockParameterizedSampleReverse()));
+    }
   }
 
   @Test public void arrayOf() {

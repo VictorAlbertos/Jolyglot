@@ -14,15 +14,28 @@
  * limitations under the License.
  */
 
-package io.victoralbertos.json_converter;
+package io.victoralbertos.jolyglot;
 
-import io.victoralbertos.jolyglot.Jolyglot;
-import io.victoralbertos.jolyglot.MoshiSpeaker;
+public class MockParameterized<T> {
+  private final T t;
+  private final String s1;
 
-public final class MoshiSpeakerTest extends JolyglotTest {
+  public MockParameterized(T t) {
+    this.t = t;
+    this.s1 = "s1";
+  }
 
-  @Override protected Jolyglot jolyglot() {
-    return new MoshiSpeaker();
+  public MockParameterized() {
+    this.t = null;
+    this.s1 = null;
+  }
+
+  public T getT() {
+    return t;
+  }
+
+  public String getS1() {
+    return s1;
   }
 
 }

@@ -14,28 +14,14 @@
  * limitations under the License.
  */
 
-package io.victoralbertos.json_converter;
+package io.victoralbertos.jolyglot;
 
-public class MockParameterized<T> {
-  private final T t;
-  private final String s1;
+import io.victoralbertos.jolyglot.*;
 
-  public MockParameterized(T t) {
-    this.t = t;
-    this.s1 = "s1";
-  }
+public final class JacksonSpeakerTest extends io.victoralbertos.jolyglot.JolyglotTest {
 
-  public MockParameterized() {
-    this.t = null;
-    this.s1 = null;
-  }
-
-  public T getT() {
-    return t;
-  }
-
-  public String getS1() {
-    return s1;
+  @Override protected Jolyglot jolyglot() {
+    return new JacksonSpeaker();
   }
 
 }

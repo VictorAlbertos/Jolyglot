@@ -16,9 +16,7 @@
 
 package io.victoralbertos.jolyglot;
 
-import io.victoralbertos.jolyglot.*;
-
-public final class MoshiSpeakerTest extends io.victoralbertos.jolyglot.JolyglotTest {
+public final class MoshiSpeakerTest extends JolyglotTest {
 
   @Override protected Jolyglot jolyglot() {
     return new MoshiSpeaker();

@@ -16,7 +16,7 @@
 
 package io.victoralbertos.jolyglot;
 
-public final class GsonSpeakerTest extends io.victoralbertos.jolyglot.JolyglotTest {
+public final class GsonSpeakerTest extends JolyglotTest {
 
   @Override protected Jolyglot jolyglot() {
     return new GsonSpeaker();

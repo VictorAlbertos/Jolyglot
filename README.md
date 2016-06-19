@@ -14,8 +14,6 @@ Jolyglot allows to convert objects to and from Json without depending on any con
 * [Jackson](https://github.com/FasterXML/jackson). 
 * [Moshi](https://github.com/square/moshi). 
 
-If you need another json provider, feel free to open an issue to address it. 
-
 ## Setup
 Add JitPack repository in your build.gradle (top level module):
 ```gradle

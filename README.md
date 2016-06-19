@@ -1,5 +1,5 @@
-## Jolyglot
-Jolyglot allows to convert objects to and from Json without depending on any concrete implementation. Thus, you can happy code agains this [polyglot abstraction](https://github.com/VictorAlbertos/Jolyglot/blob/master/api/src/main/java/io/victoralbertos/jolyglot/Jolyglot.java), and let the clients of your library choose whatever json provider which better suits their needs. 
+# Jolyglot
+Jolyglot allows to convert objects to and from Json without depending on any concrete implementation. Thus, you can happy code against this [polyglot abstraction](https://github.com/VictorAlbertos/Jolyglot/blob/master/api/src/main/java/io/victoralbertos/jolyglot/Jolyglot.java), and let the clients of your library choose whatever json provider which better suits their needs. 
 
 ## Available Json providers:
 * [Gson](https://github.com/google/gson). 
@@ -14,7 +14,7 @@ Add JitPack repository in your build.gradle (top level module):
 allprojects {
     repositories {
         jcenter()
-        maven { url "https://jitpack.io" }
+        maven { url 'https://jitpack.io' }
     }
 }
 ```
@@ -22,17 +22,17 @@ allprojects {
 And add Jolyglot api module in the build.gradle of your library module:
 ```gradle
 dependencies {
-    compile "com.github.VictorAlbertos.Jolyglot:api:0.0.1"
+    compile 'com.github.VictorAlbertos.Jolyglot:api:0.0.1'
 }
 ```
 
-Ask to the clients of your librery to add one of the next json providers:
+Ask to the clients of your library to add one of the next json providers:
 
 ```gradle
 dependencies {
-    compile "com.github.VictorAlbertos.Jolyglot:gson:0.0.1"
-    compile "com.github.VictorAlbertos.Jolyglot:jackson:0.0.1"
-    compile "com.github.VictorAlbertos.Jolyglot:moshi:0.0.1"
+    compile 'com.github.VictorAlbertos.Jolyglot:gson:0.0.1'
+    compile 'com.github.VictorAlbertos.Jolyglot:jackson:0.0.1'
+    compile 'com.github.VictorAlbertos.Jolyglot:moshi:0.0.1'
 }
 ```
 
@@ -41,7 +41,7 @@ dependencies {
 ### Instantiate Jolyglot.
 Ask to the client of your library for a concrete implementation of [Jolyglot](https://github.com/VictorAlbertos/Jolyglot/blob/master/api/src/main/java/io/victoralbertos/jolyglot/Jolyglot.java).
 
-Depending on the provider chosen by your client, the instance of Jolyglot will be created in one of the nex ways:
+Depending on the provider chosen by your client, the instance of Jolyglot will be created in one of the next ways:
 
 ```java
 Jolyglot jolyglot = new GsonSpeaker()

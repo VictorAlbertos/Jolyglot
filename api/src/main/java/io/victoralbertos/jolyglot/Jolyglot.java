@@ -29,7 +29,7 @@ public interface Jolyglot {
   /**
    * This method serializes the specified object into its equivalent Json representation.
    * This method should be used when the specified object is not a generic type.
-   * @param src the object for which Json representation is to be created setting for Gson
+   * @param src the object for which Json representation is to be created.
    * @return Json representation of {@code src}.
    */
   String toJson(Object src) throws RuntimeException;

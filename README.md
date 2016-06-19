@@ -41,7 +41,7 @@ dependencies {
 ### Instantiate Jolyglot.
 Ask to the client of your library for a concrete implementation of [Jolyglot](https://github.com/VictorAlbertos/Jolyglot/blob/master/api/src/main/java/io/victoralbertos/jolyglot/Jolyglot.java).
 
-Depending on the provider chosen by your client, the instance of Jolyglot will be created in one of the nex ways:
+Depending on the provider chosen by your client, the instance of Jolyglot will be created in one of the next ways:
 
 ```java
 Jolyglot jolyglot = new GsonSpeaker()

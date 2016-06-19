@@ -3,12 +3,13 @@
 # Jolyglot
 Jolyglot allows to convert objects to and from Json without depending on any concrete implementation. Thus, you can happy code against this [polyglot abstraction](https://github.com/VictorAlbertos/Jolyglot/blob/master/api/src/main/java/io/victoralbertos/jolyglot/Jolyglot.java), and let the clients of your library choose whatever json provider which better suits their needs. 
 
-## Available Json providers:
+## Available json providers:
 * [Gson](https://github.com/google/gson). 
 * [Jackson](https://github.com/FasterXML/jackson). 
 * [Moshi](https://github.com/square/moshi). 
+* [FastJson](https://github.com/alibaba/fastjson).
 
-## Available Json providers supporting `generics`:
+## Available json providers supporting generics:
 * [Gson](https://github.com/google/gson). 
 * [Jackson](https://github.com/FasterXML/jackson). 
 * [Moshi](https://github.com/square/moshi). 
@@ -29,7 +30,7 @@ allprojects {
 And add Jolyglot api module in the build.gradle of your library module:
 ```gradle
 dependencies {
-    compile 'com.github.VictorAlbertos.Jolyglot:api:0.0.1'
+    compile 'com.github.VictorAlbertos.Jolyglot:api:0.0.2'
 }
 ```
 
@@ -37,9 +38,9 @@ Ask to the clients of your library to add one of the next json providers:
 
 ```gradle
 dependencies {
-    compile 'com.github.VictorAlbertos.Jolyglot:gson:0.0.1'
-    compile 'com.github.VictorAlbertos.Jolyglot:jackson:0.0.1'
-    compile 'com.github.VictorAlbertos.Jolyglot:moshi:0.0.1'
+    compile 'com.github.VictorAlbertos.Jolyglot:gson:0.0.2'
+    compile 'com.github.VictorAlbertos.Jolyglot:jackson:0.0.2'
+    compile 'com.github.VictorAlbertos.Jolyglot:moshi:0.0.2'
 }
 ```
 
@@ -73,13 +74,13 @@ String json = "";
 jolyglot.fromJson(json, Your.class);
 ```
 
-#### `generic` object to json.
+#### Generic object to json.
 ```java
 Type type = jolyglot.newParameterizedType(YourParameterized.class, YourEnclosing.class);
 jolyglot.toJson(parameterizedObject, type);
 ```
 
-#### Json to `generic` object.
+#### Json to generic object.
 ```java
 String json = "";
 Type type = jolyglot.newParameterizedType(YourParameterized.class, YourEnclosing.class);

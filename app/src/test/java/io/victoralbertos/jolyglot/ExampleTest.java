@@ -29,9 +29,9 @@ import static org.junit.Assert.assertThat;
 
 @RunWith(Theories.class)
 public class ExampleTest {
-  @DataPoint public static Jolyglot gson = new GsonSpeaker();
-  @DataPoint public static Jolyglot jackson = new JacksonSpeaker();
-  @DataPoint public static Jolyglot moshi = new MoshiSpeaker();
+  @DataPoint public static JolyglotGenerics gson = new GsonSpeaker();
+  @DataPoint public static JolyglotGenerics jackson = new JacksonSpeaker();
+  @DataPoint public static JolyglotGenerics moshi = new MoshiSpeaker();
 
   @Theory
   @Test public void objectToJson(Jolyglot jolyglot) {
@@ -41,7 +41,7 @@ public class ExampleTest {
   }
 
   @Theory
-  @Test public void genericToJson(Jolyglot jolyglot) {
+  @Test public void genericToJson(JolyglotGenerics jolyglot) {
     Mock mock = new Mock("s1");
     Wrapper<Mock> wrapper = new Wrapper<>(mock);
 
@@ -58,7 +58,7 @@ public class ExampleTest {
   }
 
   @Theory
-  @Test public void jsonToGeneric(Jolyglot jolyglot) {
+  @Test public void jsonToGeneric(JolyglotGenerics jolyglot) {
     String json = "{\"t\":{\"s1\":\"s1\"}}";
 
     Type type = jolyglot.newParameterizedType(Wrapper.class, Mock.class);

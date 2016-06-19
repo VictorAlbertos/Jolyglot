@@ -8,6 +8,11 @@ Jolyglot allows to convert objects to and from Json without depending on any con
 * [Jackson](https://github.com/FasterXML/jackson). 
 * [Moshi](https://github.com/square/moshi). 
 
+## Available Json providers supporting `generics`:
+* [Gson](https://github.com/google/gson). 
+* [Jackson](https://github.com/FasterXML/jackson). 
+* [Moshi](https://github.com/square/moshi). 
+
 If you need another json provider, feel free to open an issue to address it. 
 
 ## Setup
@@ -41,7 +46,8 @@ dependencies {
 ## Usage
 
 ### Instantiate Jolyglot.
-Ask to the client of your library for a concrete implementation of [Jolyglot](https://github.com/VictorAlbertos/Jolyglot/blob/master/api/src/main/java/io/victoralbertos/jolyglot/Jolyglot.java).
+Ask to the client of your library for an implementation of [Jolyglot](https://github.com/VictorAlbertos/Jolyglot/blob/master/api/src/main/java/io/victoralbertos/jolyglot/Jolyglot.java) if your library doesn't need to deal with `generics`. 
+Otherwise, ask for an instance of [JolyglotGenerics](https://github.com/VictorAlbertos/Jolyglot/blob/master/api/src/main/java/io/victoralbertos/jolyglot/JolyglotGenerics.java).
 
 Depending on the provider chosen by your client, the instance of Jolyglot will be created in one of the next ways:
 
@@ -61,19 +67,19 @@ Jolyglot jolyglot = new MoshiSpeaker(moshi) //overloaded constructor to customiz
 jolyglot.toJson(object);
 ```
 
-#### Parameterized object to json.
-```java
-Type type = jolyglot.newParameterizedType(YourParameterized.class, YourEnclosing.class);
-jolyglot.toJson(parameterizedObject, type);
-```
-
 #### Json to object.
 ```java
 String json = "";
 jolyglot.fromJson(json, Your.class);
 ```
 
-#### Json to parameterized object.
+#### `generic` object to json.
+```java
+Type type = jolyglot.newParameterizedType(YourParameterized.class, YourEnclosing.class);
+jolyglot.toJson(parameterizedObject, type);
+```
+
+#### Json to `generic` object.
 ```java
 String json = "";
 Type type = jolyglot.newParameterizedType(YourParameterized.class, YourEnclosing.class);
@@ -82,4 +88,4 @@ jolyglot.fromJson(json, type);
 
 For a complete example go [here](https://github.com/VictorAlbertos/Jolyglot/blob/master/app/src/test/java/io/victoralbertos/jolyglot/ExampleTest.java). 
 
-Be aware that the idiosyncrasy of every underlying json provider still remains. Jolyglot is only an abstraction layer to honor this diversity, but, in the end, every java class serialized/deserialized neeeds to fulfill the requirements of every json provider.
+Be aware that the idiosyncrasy of every underlying json provider still remains. Jolyglot is only an abstraction layer to honor this diversity, but, in the end, every java class serialized/deserialized needs to fulfill the requirements of every json provider.

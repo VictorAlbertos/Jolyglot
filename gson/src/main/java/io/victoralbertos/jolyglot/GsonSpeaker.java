@@ -28,7 +28,7 @@ import java.lang.reflect.Type;
 /**
  * Gson implementation of Jolyglot
  */
-public class GsonSpeaker implements Jolyglot {
+public class GsonSpeaker implements JolyglotGenerics {
   private final Gson gson;
 
   public GsonSpeaker(Gson gson) {

@@ -1,3 +1,5 @@
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Jolyglot-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/3742)
+
 # Jolyglot
 Jolyglot allows to convert objects to and from Json without depending on any concrete implementation. Thus, you can happy code against this [polyglot abstraction](https://github.com/VictorAlbertos/Jolyglot/blob/master/api/src/main/java/io/victoralbertos/jolyglot/Jolyglot.java), and let the clients of your library choose whatever json provider which better suits their needs. 
 

@@ -39,6 +39,7 @@ dependencies {
     compile 'com.github.VictorAlbertos.Jolyglot:gson:0.0.2'
     compile 'com.github.VictorAlbertos.Jolyglot:jackson:0.0.2'
     compile 'com.github.VictorAlbertos.Jolyglot:moshi:0.0.2'
+    compile 'com.github.VictorAlbertos.Jolyglot:fastjson:0.0.2'
 }
 ```
 
@@ -59,6 +60,9 @@ Jolyglot jolyglot = new JacksonSpeaker(objectMapper) //overloaded constructor to
 
 Jolyglot jolyglot = new MoshiSpeaker()
 Jolyglot jolyglot = new MoshiSpeaker(moshi) //overloaded constructor to customize the moshi object.
+
+Jolyglot jolyglot = new FastJsonSpeaker()
+
 ```
 
 #### Object to json.

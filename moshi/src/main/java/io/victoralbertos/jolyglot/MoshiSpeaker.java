@@ -45,7 +45,7 @@ public class MoshiSpeaker implements JolyglotGenerics {
   /**
    * {@inheritDoc}
    */
-  @Override public String toJson(Object src) throws RuntimeException {
+  @Override public String toJson(Object src)  {
     JsonAdapter<Object> jsonAdapter = moshi.adapter(Object.class);
     return jsonAdapter.toJson(src);
   }

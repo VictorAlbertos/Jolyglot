@@ -32,7 +32,7 @@ public interface Jolyglot {
    * @param src the object for which Json representation is to be created.
    * @return Json representation of {@code src}.
    */
-  String toJson(Object src) throws RuntimeException;
+  String toJson(Object src);
 
   /**
    * This method deserializes the specified Json into an object of the specified class. It is not

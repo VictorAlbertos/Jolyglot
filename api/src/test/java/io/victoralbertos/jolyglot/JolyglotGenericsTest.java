@@ -29,6 +29,31 @@ public abstract class JolyglotGenericsTest {
     jolyglot = jolyglot();
   }
 
+  @Test public void toJsonUsingTypeWithNotParameterizedType()
+      throws NoSuchMethodException {
+    Method method = Types.class.getDeclaredMethod("mock");
+    Type type = method.getGenericReturnType();
+
+    Mock mock = new Mock();
+    String jsonMock = jolyglot.toJson(mock, type);
+    assertThat(jsonMock, is(jsonMockSample()));
+  }
+
+  @Test public void fromStringJsonTypeWithNotParameterizedType() throws NoSuchMethodException {
+    Method method = Types.class.getDeclaredMethod("mock");
+    Type type = method.getGenericReturnType();
+
+    Mock mock = jolyglot.fromJson(jsonMockParameterizedSample(), type);
+
+    try {
+      assertThat(jolyglot.toJson(mock, type),
+          is(jsonMockSample()));
+    } catch (AssertionError i) {
+      assertThat(jolyglot.toJson(mock, type),
+          is(jsonMockSample()));
+    }
+  }
+
   @Test public void toJsonType() throws NoSuchMethodException {
     Method method = Types.class.getDeclaredMethod("mockParameterized");
     Type type = method.getGenericReturnType();
@@ -238,6 +263,10 @@ public abstract class JolyglotGenericsTest {
       assertThat(jolyglot.toJson(mapMockParameterized, type),
           is(jsonMockParameterizedMapSampleReverse()));
     }
+  }
+
+  private String jsonMockSample() {
+    return "{\"s1\":\"s1\"}";
   }
 
   private String jsonMockParameterizedSample() {

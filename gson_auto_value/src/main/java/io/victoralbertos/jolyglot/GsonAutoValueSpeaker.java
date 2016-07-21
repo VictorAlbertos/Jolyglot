@@ -17,10 +17,9 @@
 package io.victoralbertos.jolyglot;
 
 import com.google.gson.Gson;
-import java.io.BufferedReader;
+import com.google.gson.GsonBuilder;
+import com.google.gson.TypeAdapterFactory;
 import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
 import java.lang.reflect.GenericArrayType;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -28,87 +27,56 @@ import java.lang.reflect.Type;
 /**
  * Gson implementation of Jolyglot
  */
-public class GsonSpeaker implements JolyglotGenerics {
-  private final Gson gson;
+public abstract class GsonAutoValueSpeaker implements JolyglotGenerics {
+  private final GsonSpeaker gsonSpeaker;
 
-  public GsonSpeaker(Gson gson) {
-    this.gson = gson;
-  }
-
-  public GsonSpeaker() {
-    this.gson = new Gson();
+  public GsonAutoValueSpeaker() {
+    Gson gson = new GsonBuilder()
+        .registerTypeAdapterFactory(autoValueGsonTypeAdapterFactory())
+        .create();
+    gsonSpeaker = new GsonSpeaker(gson);
   }
 
   /**
    * {@inheritDoc}
    */
   @Override public String toJson(Object src) {
-      return gson.toJson(src);
+      return gsonSpeaker.toJson(src);
   }
 
   /**
    * {@inheritDoc}
    */
   @Override public String toJson(Object src, Type typeOfSrc) {
-    return gson.toJson(src, typeOfSrc);
+    return gsonSpeaker.toJson(src, typeOfSrc);
   }
 
   /**
    * {@inheritDoc}
    */
   @Override public <T> T fromJson(String json, Class<T> classOfT) throws RuntimeException {
-      return gson.fromJson(json, classOfT);
+      return gsonSpeaker.fromJson(json, classOfT);
   }
 
   /**
    * {@inheritDoc}
    */
   @Override public <T> T fromJson(String json, Type typeOfT) throws RuntimeException {
-      return gson.fromJson(json, typeOfT);
+      return gsonSpeaker.fromJson(json, typeOfT);
   }
 
   /**
    * {@inheritDoc}
    */
   @Override public <T> T fromJson(File file, Class<T> classOfT) throws RuntimeException {
-    BufferedReader reader = null;
-
-    try {
-      reader = new BufferedReader(new FileReader(file.getAbsoluteFile()));
-      T object =  gson.fromJson(reader, classOfT);
-      reader.close();
-      return object;
-    } catch (IOException e) {
-      throw new RuntimeException(e);
-    } finally {
-      if (reader != null) {
-        try {
-          reader.close();
-        } catch (IOException i) {}
-      }
-    }
+    return gsonSpeaker.fromJson(file, classOfT);
   }
 
   /**
    * {@inheritDoc}
    */
   @Override public <T> T fromJson(File file, Type typeOfT) throws RuntimeException {
-    BufferedReader reader = null;
-
-    try {
-      reader = new BufferedReader(new FileReader(file.getAbsoluteFile()));
-      T object =  gson.fromJson(reader, typeOfT);
-      reader.close();
-      return object;
-    } catch (IOException e) {
-      throw new RuntimeException(e);
-    } finally {
-      if (reader != null) {
-        try {
-          reader.close();
-        } catch (IOException i) {}
-      }
-    }
+    return gsonSpeaker.fromJson(file, typeOfT);
   }
 
   @Override public GenericArrayType arrayOf(Type componentType) {
@@ -121,5 +89,7 @@ public class GsonSpeaker implements JolyglotGenerics {
   @Override public ParameterizedType newParameterizedType(Type rawType, Type... typeArguments) {
       return Types.newParameterizedType(rawType, typeArguments);
   }
+
+  protected abstract TypeAdapterFactory autoValueGsonTypeAdapterFactory();
 
 }

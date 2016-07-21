@@ -16,7 +16,23 @@
 
 package io.victoralbertos.jolyglot;
 
-public interface Types {
-  Mock mock();
-  MockParameterized<Mock> mockParameterized();
+import com.google.gson.Gson;
+import com.google.gson.TypeAdapter;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+
+public final class GsonAutoValueSpeakerTest extends JolyglotTest {
+
+  @Override protected Jolyglot jolyglot() {
+    return new GsonAutoValueSpeaker() {
+      @Override protected TypeAdapterFactory autoValueGsonTypeAdapterFactory() {
+        return new TypeAdapterFactory() {
+          @Override public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+            return gson.getDelegateAdapter(this, type);
+          }
+        };
+      }
+    };
+  }
+
 }

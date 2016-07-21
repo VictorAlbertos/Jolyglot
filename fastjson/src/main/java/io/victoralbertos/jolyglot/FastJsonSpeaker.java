@@ -30,7 +30,7 @@ public class FastJsonSpeaker implements Jolyglot {
   /**
    * {@inheritDoc}
    */
-  @Override public String toJson(Object src) throws RuntimeException {
+  @Override public String toJson(Object src) {
     return JSON.toJSONString(src);
   }
 

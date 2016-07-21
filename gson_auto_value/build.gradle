@@ -33,10 +33,7 @@ artifacts {
 }
 
 dependencies {
-    compile project(':api')
-    compile project(':common')
-
-    compile 'com.fasterxml.jackson.core:jackson-databind:2.7.4'
+    compile project(':gson')
 
     compileTestJava.dependsOn tasks.getByPath(':api:testClasses')
     testCompile files(project(':api').sourceSets.test.output.classesDir)

@@ -1,1 +1,1 @@
-include ':app', ':api', ':common', ':gson', ':moshi', ':jackson', ':fastjson'
+include ':app', ':api', ':common', ':gson', ':moshi', ':jackson', ':fastjson', ':gson_auto_value'

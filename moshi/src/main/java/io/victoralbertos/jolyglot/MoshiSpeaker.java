@@ -86,14 +86,20 @@ public class MoshiSpeaker implements JolyglotGenerics {
    * {@inheritDoc}
    */
   @Override public <T> T fromJson(File file, Class<T> classOfT) throws RuntimeException {
+    BufferedSource bufferedSource = null;
     try {
-      BufferedSource bufferedSource = Okio
-          .buffer(Okio.source(file));
-
+      bufferedSource = Okio.buffer(Okio.source(file));
       JsonAdapter<T> jsonAdapter = moshi.adapter(classOfT);
       return jsonAdapter.fromJson(JsonReader.of(bufferedSource));
     } catch (IOException e) {
       throw new RuntimeException(e);
+    } finally {
+      if(bufferedSource != null){
+        try {
+          bufferedSource.close();
+        } catch (IOException ignored) {
+        }
+      }
     }
   }
 
@@ -101,14 +107,20 @@ public class MoshiSpeaker implements JolyglotGenerics {
    * {@inheritDoc}
    */
   @Override public <T> T fromJson(File file, Type typeOfT) throws RuntimeException {
+    BufferedSource bufferedSource = null;
     try {
-      BufferedSource bufferedSource = Okio
-          .buffer(Okio.source(file));
-
+      bufferedSource = Okio.buffer(Okio.source(file));
       JsonAdapter<T> jsonAdapter = moshi.adapter(typeOfT);
       return jsonAdapter.fromJson(JsonReader.of(bufferedSource));
     } catch (IOException e) {
       throw new RuntimeException(e);
+    } finally {
+      if(bufferedSource != null){
+        try {
+          bufferedSource.close();
+        } catch (IOException ignored) {
+        }
+      }
     }
   }
 

@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-  compileSdkVersion 23
-  buildToolsVersion "23.0.3"
+  compileSdkVersion 29
+  buildToolsVersion "30.0.0"
 
   defaultConfig {
     applicationId "io.victoralbertos.jolyglot"
     minSdkVersion 16
-    targetSdkVersion 23
+    targetSdkVersion 29
     versionCode 1
     versionName "1.0"
   }
@@ -20,11 +20,10 @@ android {
 }
 
 dependencies {
-  compile project(':api')
-  compile project(':gson')
-  compile project(':jackson')
-  compile project(':moshi')
+  implementation project(':api')
+  implementation project(':gson')
+  implementation project(':jackson')
+  implementation project(':moshi')
 
-  testCompile 'junit:junit:4.12'
-  compile 'com.android.support:appcompat-v7:23.4.0'
+  testImplementation 'junit:junit:4.12'
 }

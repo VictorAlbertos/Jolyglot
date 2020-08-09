@@ -12,15 +12,9 @@ buildscript {
       url "https://plugins.gradle.org/m2/"
     }
   }
-
-  dependencies {
-    classpath "net.ltgt.gradle:gradle-apt-plugin:0.4"
-    classpath 'net.sf.proguard:proguard-gradle:4.11'
-  }
 }
 
 apply plugin: 'idea'
-apply plugin: "net.ltgt.apt"
 apply plugin: 'maven'
 
 group = 'com.github.VictorAlbertos'
@@ -52,5 +46,5 @@ artifacts {
 }
 
 dependencies {
-  testCompile 'junit:junit:4.12'
+  testImplementation 'junit:junit:4.13'
 }

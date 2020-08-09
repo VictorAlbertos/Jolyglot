@@ -33,9 +33,9 @@ artifacts {
 }
 
 dependencies {
-    compile project(':gson')
+    implementation project(':gson')
 
     compileTestJava.dependsOn tasks.getByPath(':api:testClasses')
-    testCompile files(project(':api').sourceSets.test.output.classesDir)
-    testCompile 'junit:junit:4.12'
+    testImplementation files(project(':api').sourceSets.test.output.classesDirs)
+    testImplementation 'junit:junit:4.13'
 }

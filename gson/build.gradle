@@ -33,12 +33,12 @@ artifacts {
 }
 
 dependencies {
-  compile project(':api')
-  compile project(':common')
+  implementation project(':api')
+  implementation project(':common')
 
-  compile 'com.google.code.gson:gson:2.6.2'
+  implementation 'com.google.code.gson:gson:2.8.6'
 
   compileTestJava.dependsOn tasks.getByPath(':api:testClasses')
-  testCompile files(project(':api').sourceSets.test.output.classesDir)
-  testCompile 'junit:junit:4.12'
+  testImplementation files(project(':api').sourceSets.test.output.classesDirs)
+  testImplementation 'junit:junit:4.13'
 }

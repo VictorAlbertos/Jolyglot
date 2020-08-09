@@ -34,11 +34,11 @@ artifacts {
 }
 
 dependencies {
-  compile project(':api')
+  implementation project(':api')
 
-  compile 'com.squareup.moshi:moshi:1.2.0'
+  implementation 'com.squareup.moshi:moshi:1.9.2'
 
   compileTestJava.dependsOn tasks.getByPath(':api:testClasses')
-  testCompile files(project(':api').sourceSets.test.output.classesDir)
-  testCompile 'junit:junit:4.12'
+  testImplementation files(project(':api').sourceSets.test.output.classesDirs)
+  testImplementation 'junit:junit:4.13'
 }

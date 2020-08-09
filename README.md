@@ -28,7 +28,7 @@ allprojects {
 And add Jolyglot api module in the build.gradle of your library module:
 ```gradle
 dependencies {
-    compile 'com.github.VictorAlbertos.Jolyglot:api:0.0.4'
+    compile 'com.github.VictorAlbertos.Jolyglot:api:0.0.5'
 }
 ```
 
@@ -36,10 +36,10 @@ Ask to the clients of your library to add one of the next json providers:
 
 ```gradle
 dependencies {
-    compile 'com.github.VictorAlbertos.Jolyglot:gson:0.0.4'
-    compile 'com.github.VictorAlbertos.Jolyglot:jackson:0.0.4'
-    compile 'com.github.VictorAlbertos.Jolyglot:moshi:0.0.4'
-    compile 'com.github.VictorAlbertos.Jolyglot:fastjson:0.0.4'
+    compile 'com.github.VictorAlbertos.Jolyglot:gson:0.0.5'
+    compile 'com.github.VictorAlbertos.Jolyglot:jackson:0.0.5'
+    compile 'com.github.VictorAlbertos.Jolyglot:moshi:0.0.5'
+    compile 'com.github.VictorAlbertos.Jolyglot:fastjson:0.0.5'
 }
 ```
 
